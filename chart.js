@@ -74,7 +74,7 @@ function transition(name) {
 		$("#view-donor-type").fadeIn(1000);
 		return donorType();
 	}
-	if (name === "group-by-money-source")
+	if (name === "group-by-money-source") {
 		music.currentTime=0;
 		music.play();
 		$("#initial-content").fadeOut(250);
@@ -84,6 +84,7 @@ function transition(name) {
 		$("#view-source-type").fadeIn(1000);
 		return fundsType();
 	}
+}
 
 function start() {
 
