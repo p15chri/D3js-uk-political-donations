@@ -51,6 +51,7 @@ function transition(name) {
 		$("#view-donor-type").fadeOut(250);
 		$("#view-source-type").fadeOut(250);
 		$("#view-party-type").fadeOut(250);
+		$("#view-amount-type").fadeOut(250); 
 		return total();
 		//location.reload();
 	}
@@ -62,6 +63,7 @@ function transition(name) {
 		$("#view-donor-type").fadeOut(250);
 		$("#view-source-type").fadeOut(250);
 		$("#view-party-type").fadeIn(1000);
+		$("#view-amount-type").fadeOut(250); 
 		return partyGroup();
 	}
 	if (name === "group-by-donor-type") {
@@ -72,6 +74,7 @@ function transition(name) {
 		$("#view-party-type").fadeOut(250);
 		$("#view-source-type").fadeOut(250);
 		$("#view-donor-type").fadeIn(1000);
+		$("#view-amount-type").fadeOut(250); 
 		return donorType();
 	}
 	if (name === "group-by-money-source") {
@@ -82,8 +85,20 @@ function transition(name) {
 		$("#view-donor-type").fadeOut(250);
 		$("#view-party-type").fadeOut(250);
 		$("#view-source-type").fadeIn(1000);
+		$("#view-amount-type").fadeOut(250); 
 		return fundsType();
 	}
+		
+		if (name === "group-by-amount"){
+		$("#initial-content").fadeOut(250);
+		$("#value-scale").fadeOut(250);
+		$("#view-donor-type").fadeOut(250);
+		$("#view-party-type").fadeOut(250);
+		$("#view-source-type").fadeOut(1000);
+		$("#view-amount-type").fadeIn(250);
+		return amountType();
+	}
+
 }
 
 function start() {
@@ -92,6 +107,7 @@ function start() {
 		.data(nodes)
 	.enter().append("circle")
 		.attr("class", function(d) { return "node " + d.party; })
+		.attr("amount", function(d) { return d.value; })
 		.attr("amount", function(d) { return d.value; })
 		.attr("donor", function(d) { return d.donor; })
 		.attr("entity", function(d) { return d.entity; })
@@ -127,6 +143,16 @@ function total() {
 		.on("tick", all)
 		.start();
 }
+	function amountType() {
+		force.gravity(0)
+			.friction(0.85)
+			.charge(function(d) { return -Math.pow(d.radius, 2) / 2.5; })
+			.on("tick", amounts)
+			.start();
+	}
+	
+
+
 
 function partyGroup() {
 	force.gravity(0)
@@ -152,6 +178,14 @@ function fundsType() {
 		.on("tick", types)
 		.start();
 }
+function amounts(e) {
+	node.each(moveToAmount(e.alpha));
+
+
+		node.attr("cx", function(d) { return d.x; })
+			.attr("cy", function(d) {return d.y; });
+}
+
 
 function parties(e) {
 	node.each(moveToParties(e.alpha));
@@ -251,6 +285,27 @@ function moveToFunds(alpha) {
 		d.y += (centreY - d.y) * (brake + 0.02) * alpha * 1.1;
 	};
 }
+function moveToAmount(alpha) {
+	return function(d) {
+		
+		if (d.value <= 50000) { 
+			centreX = svgCentre.x ;
+			centreY = svgCentre.y -50;
+		} else if (d.value <= 350000) { 
+			centreX = svgCentre.x + 150;
+			centreY = svgCentre.y ;
+		} else if (d.value <= 20000000){ 
+			centreX = svgCentre.x + 300;
+			centreY = svgCentre.y + 50;
+		}
+
+
+		d.x += (centreX - d.x) * (brake + 0.02) * alpha * 1.1;
+		d.y += (centreY - d.y) * (brake + 0.02) * alpha * 1.1;
+	};
+}
+
+
 
 // Collision detection function by m bostock
 function collide(alpha) {
@@ -266,7 +321,7 @@ function collide(alpha) {
         var x = d.x - quad.point.x,
             y = d.y - quad.point.y,
             l = Math.sqrt(x * x + y * y),
-            r = d.radius + quad.point.radius + (d.color !== quad.point.color) * padding;
+            r = d.radius + quad.point.radius + (d.color !== quad.point.color) *padding;
         if (l < r) {
           l = (l - r) / l * alpha;
           d.x -= x *= l;
@@ -282,6 +337,8 @@ function collide(alpha) {
     });
   };
 }
+
+
 
 function display(data) {
 
@@ -357,12 +414,21 @@ function mouseover(d, i) {
 			.style("display","block");
 			var message = new SpeechSynthesisUtterance("The donator is " + donor + " and the amount that he gave is " + amount + " british pounds");
     window.speechSynthesis.speak(message);
+		mosie.classed("active", true);
+	d3.select(".tooltip")
+  	.style("left", (parseInt(d3.select(this).attr("cx") - 80) + offset.left) + "px")
+ 	.style("top", (parseInt(d3.select(this).attr("cy") - (d.radius+150)) + offset.top) + "px")
+		.html(infoBox)
+			.style("display","block");
+	}
+
 	
 	
 	}
 
 function mouseout() {
 	// no more tooltips
+	window.speechSynthesis.cancel();
 		var mosie = d3.select(this);
 
 		mosie.classed("active", false);
