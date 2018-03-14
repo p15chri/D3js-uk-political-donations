@@ -102,8 +102,8 @@ function start() {
 		.attr("r", 0)
 		.style("fill", function(d) { return fill(d.party); })
 		.on("mouseover", mouseover)
-		.on("mouseout", mouseout)
-	        .on("click",googleSearch);
+		.on("mouseout", mouseout);
+	      
 		// Alternative title based 'tooltips'
 		// node.append("title")
 		//	.text(function(d) { return d.donor; });
@@ -371,12 +371,6 @@ function mouseout() {
 			.style("display", "none");
 		}
 
-function googleSearch(d,i){
-    var mosie = d3.select(this);
-    var donor = d.donor;
-    var url ='http://www.google.com/search?q=' + donor;
-    window.open(url,'_blank');
-}
 
 $(document).ready(function() {
 		d3.selectAll(".switch").on("click", function(d) {
