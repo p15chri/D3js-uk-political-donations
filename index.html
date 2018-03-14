@@ -35,10 +35,10 @@
 <body>
 
     <header role="banner" id="title">
-        <h1>Who's funding the big three?</h1>
+        <h1 class="zoom">Who's funding the big three?</h1>
     </header>
     <nav role="navigation">
-        <ul>
+        <ul class="zoom">
             <li><a href="#" role="button" class="pure-button switch" id="all-donations">All money</a>
             </li>
             <li><a href="#" role="button" class="pure-button switch" id="group-by-money-source">The public's purse</a>
@@ -64,22 +64,22 @@
             </p>
         </div>
         <div id="value-scale">
-            <div id="f" class="zoom">
-                <p>&#8212;UK average salary</p>
+            <div id="f">
+                <p class="zoom">&#8212;UK average salary</p>
             </div>
-            <div id="a" class="zoom">
+            <div id="a">
                 <strong>&#163;25k &#8212;</strong>
             </div>
-            <div id="b" class="zoom">
+            <div id="b">
                 <strong>&#163;50k &#8212;</strong>
             </div>
-            <div id="c" class="zoom">
+            <div id="c">
                 <strong>&#163;100k &#8212;</strong>
             </div>
-            <div id="d" class="zoom">
+            <div id="d">
                 <strong>&#163;500k &#8212;</strong>
             </div>
-            <div id="e" class="zoom">
+            <div id="e">
                 <strong>&#163;1m &#8212;</strong>
             </div>
         </div>
@@ -97,7 +97,7 @@
                     <h5 class="zoom">Private Donations</h5>
                     <strong>Total: &#163;89,752,524
                         </strong>
-                            <p>Proportion of all donations:
+                            <p class="zoom">Proportion of all donations:
                                 <strong>77%</strong>
                             </p>
                 </div>
@@ -119,37 +119,37 @@
                 <h5 class="zoom">Conservative Party</h5>
                 <strong>Total: &#163;43.7 million
                     </strong>
-                        <p>Top 50 donors gave:
+                        <p class="zoom">Top 50 donors gave:
                             <strong>&#163;23,329,828</strong>
                             <br>
                             <strong>50%</strong>of the total.</p>
-                        <p>Top 10 donors gave:
+                        <p class="zoom">Top 10 donors gave:
                             <strong>&#163;12,877,989</strong>
                             <br>
                             <strong>27%</strong>of the total</p>
             </div>
             <div id="labour" class="zoom">
-                <h5>Labour Party</h5>
+                <h5 class="zoom">Labour Party</h5>
                 <strong>Total: &#163;38.9 million
                     </strong>
-                        <p>Top 50 donors gave:
+                        <p class="zoom">Top 50 donors gave:
                             <strong>&#163;39,196,684</strong>
                             <br>
                             <strong>92%</strong>of the total.</p>
-                        <p>Top 10 donors gave:
+                        <p class="zoom">Top 10 donors gave:
                             <strong>&#163;34,715,877</strong>
                             <br>
                             <strong>81%</strong>of the total</p>
             </div>
             <div id="libdem" class="zoom">
-                <h5>Liberal Democrats</h5>
+                <h5 class="zoom">Liberal Democrats</h5>
                 <strong>Total: &#163;7.1 million
                     </strong>
-                        <p>Top 50 donors gave:
+                        <p class="zoom">Top 50 donors gave:
                             <strong>&#163;6,975,973</strong>
                             <br>
                             <strong>63%</strong>of the total.</p>
-                        <p>Top 10 donors gave:
+                        <p class="zoom">Top 10 donors gave:
                             <strong>&#163;4,823,899.71</strong>
                             <br>
                             <strong>43%</strong>of the total</p>
@@ -157,48 +157,48 @@
         </div>
         <div id="view-donor-type" class="zoom">
             <div id="individual">
-                <h5>Individuals</h5>
+                <h5 class="zoom">Individuals</h5>
                 <strong>Total: &#163; 35,191,222
                     </strong>
-                        <p>Proportion of all donations:
+                        <p class="zoom">Proportion of all donations:
                             <strong>39%</strong>
                         </p>
             </div>
             <div id="company" class="zoom">
-                <h5>Companies</h5>
+                <h5 class="zoom">Companies</h5>
                 <strong>Total: &#163; 17,052,129
                     </strong>
-                        <p>Proportion of all donations:
+                        <p class="zoom">Proportion of all donations:
                             <strong>19%</strong>
                         </p>
             </div>
             <div id="union" class="zoom">
-                <h5>Trade Unions</h5>
+                <h5 class="zoom">Trade Unions</h5>
                 <strong>Total: &#163;31,474,649
                     </strong>
-                        <p>Proportion of all donations:
+                        <p class="zoom">Proportion of all donations:
                             <strong>35%</strong>
                         </p>
             </div>
             <div id="society" class="zoom">
-                <h5>Societies</h5>
+                <h5 class="zoom">Societies</h5>
                 <strong>Total: &#163;4,550,129
                     </strong>
-                        <p>Proportion of all donations:
+                        <p class="zoom">Proportion of all donations:
                             <strong>5%</strong>
                         </p>
             </div>
-            <div id="other" class="zoom">
-                <h5>Others</h5>
+            <div id="other">
+                <h5 class="zoom">Others</h5>
                 <strong>Total: &#163; 1,484,395
                     </strong>
-                        <p>Proportion of all donations:
+                        <p class="zoom">Proportion of all donations:
                             <strong>2%</strong>
                         </p>
             </div>
         </div>
         </div>
-    </div>
+  
   
     <div id="chart"></div>
 
@@ -209,6 +209,7 @@
     </script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.2.2/d3.v3.min.js" charset="utf-8"></script>
     <script src="chart.js"></script>
+   
     <style type="text/css">
     .zoom:hover {
     transform: scale(1.3);
