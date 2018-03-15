@@ -101,7 +101,7 @@ function transition(name) {
 		return amountType();
 	}
 
-}
+
 
 function start() {
 
