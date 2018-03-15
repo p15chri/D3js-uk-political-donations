@@ -43,24 +43,30 @@ li {
 #view-amount-type {
     height: 100%;
 }
-#amount1 {
-    left: 150px;
-    top: 230px;
+#amountofdonation {
+    left: 500px;
+    top: 150px;
     position: absolute;
 }
-#amount2 {
-    left: 425px;
-    top: 265px;
+#more-than-500000 {
+    left: 200px;
+    top: 200px;
     position: absolute; 
 }
-#amount3 {
+#more-than-5000000 {
+    left: 750px;
+    top: 250px;
+    position: absolute; 
+}
+
+#more-than-10000000 {
+    left: 150px;
+    top: 800px;
+    position: absolute;
+}
+#more-than-20000000 {
+    top: 750px;
     left: 700px;
-    top: 300px;
-    position: absolute; 
-}
-#amount4 {
-    top: 120px;
-    left: 425px;
     position: absolute;
 }
 
