@@ -90,6 +90,8 @@ function transition(name) {
 	}
 		
 		if (name === "group-by-amount"){
+		music.currentTime=0;
+		music.play();
 		$("#initial-content").fadeOut(250);
 		$("#value-scale").fadeOut(250);
 		$("#view-donor-type").fadeOut(250);
@@ -133,7 +135,7 @@ function start() {
 			.duration(2500)
 			.attr("r", function(d) { return d.radius; });
 }
-}
+
 
 function total() {
 
