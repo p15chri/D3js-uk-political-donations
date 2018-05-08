@@ -359,7 +359,15 @@ function mouseover(d, i) {
 	var message = new SpeechSynthesisUtterance("The donator is " + donor + " and the amount that he gave is " + amount + " british pounds");
     window.speechSynthesis.speak(message);
 	
-	
+	if ((dlist.indexOf(donor) > -1) == false) {	//elegxos an to onoma tou donor emfanizetai panw apo mia fora
+		var element = document.createElement("img");	
+		element.src = imageFile;	
+		element.setAttribute("height", "42");	//
+		element.setAttribute("width", "42");
+
+		document.getElementById("images-sidebar").appendChild(element);	
+		dlist.push(donor);	
+	}
 	}
 
 function mouseout() {
