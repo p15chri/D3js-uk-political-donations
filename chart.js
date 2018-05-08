@@ -91,6 +91,8 @@ function transition(name) {
 	}
 	
 	if (name === "group-by-donation-amount") {
+		music.currentTime=0;
+		music.play();
 		$("#initial-content").fadeOut(250);
 		$("#value-scale").fadeOut(250);
 		$("#view-donor-type").fadeOut(250);
