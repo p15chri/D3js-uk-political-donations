@@ -6,6 +6,7 @@ var nodes = [];
 var force, node, data, maxVal;
 var brake = 0.2;
 var radius = d3.scale.sqrt().range([10, 20]);
+var dlist = []; //donor list gia apofigi pollaplwn emfanisewn
 
 var partyCentres = { 
     con: { x: w / 3, y: h / 3.3}, 
