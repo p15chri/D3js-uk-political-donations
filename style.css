@@ -112,6 +112,75 @@ li {
     right: 0
 }
 
+/* Amount of donation view */
+#view-donation-amount {
+    top: 140px;
+    left: 500px;
+    width: 370px;  
+}
+#first {
+    font-weight: bold;
+    position: absolute;
+    top: 235px;
+    left: 250px;
+    width: 93px;
+}
+
+#second {
+    font-weight: bold;
+    position: absolute;
+    top: 235px;
+    left: 426px;
+    width: 93px;
+}
+
+#third {
+    font-weight: bold;
+    position: absolute;
+    top: 235px;
+    left: 550px;
+    width: 93px;
+}
+
+#fourth {
+    font-weight: bold;
+    position: absolute;
+    top: 235px;
+    left: 673px;
+    width: 93px;
+}
+
+#fifth {
+    font-weight: bold;
+    position: absolute;
+    top: 235px;
+    left: 778px;
+    width: 93px;
+}
+
+#sixth {
+    font-weight: bold;
+    position: absolute;
+    top: 235px;
+    left: 895px;
+    width: 93px;
+}
+/* Value scale */
+
+#value-scale {
+    opacity: 0.5;
+    font-size: 0.75em;
+}
+#a, #b, #c, #d, #e { left: 40px; }
+#a { top: 635px;}
+#b { top: 585px;}
+#c { top: 535px;}
+#d { top: 485px;}
+#e { top: 435px;}
+#f { top: 648px; left: 575px; }
+
+/* End of view */
+
 /* Value scale */
 
 #value-scale {
