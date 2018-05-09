@@ -1,12 +1,12 @@
 // GLOBALS\
-var music=new Audio ("button.mp3");
+var music=new Audio ("button.mp3"); //PARADOTEO1
 var w = 1000,h = 900;
 var padding = 2;
 var nodes = [];
 var force, node, data, maxVal;
 var brake = 0.2;
 var radius = d3.scale.sqrt().range([10, 20]);
-var dlist = []; //donor list gia apofigi pollaplwn emfanisewn
+var dlist = []; //donor list gia apofigi pollaplwn emfanisewn-PARADOTEO 2
 
 var partyCentres = { 
     con: { x: w / 3, y: h / 3.3}, 
