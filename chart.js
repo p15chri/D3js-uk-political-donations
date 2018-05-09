@@ -52,7 +52,6 @@ function transition(name) {
 		$("#view-donor-type").fadeOut(250);
 		$("#view-source-type").fadeOut(250);
 		$("#view-party-type").fadeOut(250);
-		$("#view-donation-amount").fadeOut(250); //PARADOTEO1
 		return total();
 		//location.reload();
 	}
@@ -64,7 +63,6 @@ function transition(name) {
 		$("#view-donor-type").fadeOut(250);
 		$("#view-source-type").fadeOut(250);
 		$("#view-party-type").fadeIn(1000);
-		$("#view-donation-amount").fadeOut(250);  //PARADOTEO1
 		return partyGroup();
 	}
 	if (name === "group-by-donor-type") {
@@ -75,7 +73,6 @@ function transition(name) {
 		$("#view-party-type").fadeOut(250);
 		$("#view-source-type").fadeOut(250);
 		$("#view-donor-type").fadeIn(1000);
-		$("#view-donation-amount").fadeOut(250);  //PARADOTEO1
 		return donorType();
 	}
 	if (name === "group-by-money-source"){
@@ -86,7 +83,6 @@ function transition(name) {
 		$("#view-donor-type").fadeOut(250);
 		$("#view-party-type").fadeOut(250);
 		$("#view-source-type").fadeIn(1000);
-		$("#view-donation-amount").fadeOut(250);  //PARADOTEO1
 		return fundsType();
 	}
 	
@@ -98,7 +94,6 @@ function transition(name) {
 		$("#view-donor-type").fadeOut(250);
 		$("#view-party-type").fadeOut(250);
 		$("#view-source-type").fadeOut(250);
-		$("#view-donation-amount").fadeIn(1000); //PARADOTEO1
 		return amountsGroup();
 	}
 }
@@ -170,14 +165,6 @@ function fundsType() {
 		.start();
 }
 
-function amountsGroup() {
-	force.gravity(0)
-		.friction(0.8)
-		.charge(function(d) { return -Math.pow(d.radius, 2.0) / 3; })
-		.on("tick", amounts)
-		.start()
-		.colourByParty();
-}
 
 function parties(e) {
 	node.each(moveToParties(e.alpha));
@@ -208,14 +195,6 @@ function all(e) {
 		node.attr("cx", function(d) { return d.x; })
 			.attr("cy", function(d) {return d.y; });
 }
-
-function amounts(e) {
-	node.each(moveToAmounts(e.alpha))
-	
-		node.attr("cx", function(d) { return d.x; })
-			.attr("cy", function(d) {return d.y; });
-}
-
 
 function moveToCentre(alpha) {
 	return function(d) {
@@ -285,30 +264,6 @@ function moveToFunds(alpha) {
 	};
 }
 
-//PARADOTEO1
-function moveToAmounts(alpha) {
-	return function(d) {
-		var centreY = svgCentre.y;
-		if (d.value <= 25001) {
-				centreX = svgCentre.x + 600;
-			} else if (d.value <= 50001) {
-				centreX = svgCentre.x + 500;	
-			} else if (d.value <= 100001) {
-				centreX = svgCentre.x + 400;	
-			} else  if (d.value <= 500001) {
-				centreX = svgCentre.x + 300;	
-			} else  if (d.value <= 1000001) {
-				centreX = svgCentre.x + 200;	
-			} else  if (d.value <= maxVal) {
-				centreX = svgCentre.x ;
-			} else {
-				centreX = svgCentre.x; 
-			}
-		
-		d.x += (centreX - d.x) * (brake + 0.1) * alpha * 2.2;	
-		d.y += (centreY - d.y) * (brake + 0.02) * alpha * 2.2;	
-	};
-}
 
 // Collision detection function by m bostock
 function collide(alpha) {
