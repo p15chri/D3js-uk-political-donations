@@ -120,7 +120,7 @@ function start() {
 		.style("fill", function(d) { return fill(d.party); })
 		.on("mouseover", mouseover)
 		.on("mouseout", mouseout)
-		.on("click", function(d) { window.open("http://www.google.com/search?q=" + d.donor);});
+		.on("click", function(d) { window.open("http://www.google.com/search?q=" + d.donor);}); //PARADOTEO1
 		// Alternative title based 'tooltips'
 		// node.append("title")
 		//	.text(function(d) { return d.donor; });
@@ -211,8 +211,7 @@ function all(e) {
 
 function amounts(e) {
 	node.each(moveToAmounts(e.alpha))
-		//.each(collide(0.001));
-
+	
 		node.attr("cx", function(d) { return d.x; })
 			.attr("cy", function(d) {return d.y; });
 }
@@ -286,6 +285,7 @@ function moveToFunds(alpha) {
 	};
 }
 
+//PARADOTEO1
 function moveToAmounts(alpha) {
 	return function(d) {
 		var centreY = svgCentre.y;
