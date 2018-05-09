@@ -47,6 +47,7 @@ function transition(name) {
 		$("#value-scale").fadeIn(1000);
 		$("#view-donor-type").fadeOut(250);
 		$("#view-source-type").fadeOut(250);
+		$("#view-party-type").fadeOut(250);
 		return total();
 		//location.reload();
 	}
@@ -55,6 +56,7 @@ function transition(name) {
 		$("#value-scale").fadeOut(250);
 		$("#view-donor-type").fadeOut(250);
 		$("#view-source-type").fadeOut(250);
+		$("#view-party-type").fadeOut(250);
 		return partyGroup();
 	}
 	if (name === "group-by-donor-type") {
@@ -62,6 +64,7 @@ function transition(name) {
 		$("#value-scale").fadeOut(250);
 		$("#view-party-type").fadeOut(250);
 		$("#view-source-type").fadeOut(250);
+		$("#view-party-type").fadeOut(250);
 		return donorType();
 	}
 	if (name === "group-by-money-source")
@@ -69,6 +72,7 @@ function transition(name) {
 		$("#value-scale").fadeOut(250);
 		$("#view-donor-type").fadeOut(250);
 		$("#view-party-type").fadeOut(250);
+	         $("#view-party-type").fadeOut(250);
 		return fundsType();
 	}
 
