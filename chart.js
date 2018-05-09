@@ -52,7 +52,7 @@ function transition(name) {
 		$("#view-donor-type").fadeOut(250);
 		$("#view-source-type").fadeOut(250);
 		$("#view-party-type").fadeOut(250);
-		$("#view-donation-amount").fadeOut(250);
+		$("#view-donation-amount").fadeOut(250); //PARADOTEO1
 		return total();
 		//location.reload();
 	}
@@ -64,7 +64,7 @@ function transition(name) {
 		$("#view-donor-type").fadeOut(250);
 		$("#view-source-type").fadeOut(250);
 		$("#view-party-type").fadeIn(1000);
-		$("#view-donation-amount").fadeOut(250);
+		$("#view-donation-amount").fadeOut(250);  //PARADOTEO1
 		return partyGroup();
 	}
 	if (name === "group-by-donor-type") {
@@ -75,7 +75,7 @@ function transition(name) {
 		$("#view-party-type").fadeOut(250);
 		$("#view-source-type").fadeOut(250);
 		$("#view-donor-type").fadeIn(1000);
-		$("#view-donation-amount").fadeOut(250);
+		$("#view-donation-amount").fadeOut(250);  //PARADOTEO1
 		return donorType();
 	}
 	if (name === "group-by-money-source"){
@@ -86,7 +86,7 @@ function transition(name) {
 		$("#view-donor-type").fadeOut(250);
 		$("#view-party-type").fadeOut(250);
 		$("#view-source-type").fadeIn(1000);
-		$("#view-donation-amount").fadeOut(250);
+		$("#view-donation-amount").fadeOut(250);  //PARADOTEO1
 		return fundsType();
 	}
 	
@@ -98,7 +98,7 @@ function transition(name) {
 		$("#view-donor-type").fadeOut(250);
 		$("#view-party-type").fadeOut(250);
 		$("#view-source-type").fadeOut(250);
-		$("#view-donation-amount").fadeIn(1000);
+		$("#view-donation-amount").fadeIn(1000); //PARADOTEO1
 		return amountsGroup();
 	}
 }
@@ -414,8 +414,9 @@ function mouseover(d, i) {
 		.html(infoBox)
 			.style("display","block");
 	var message = new SpeechSynthesisUtterance("The donator is " + donor + " and the amount that he gave is " + amount + " british pounds");
-    window.speechSynthesis.speak(message);
+    window.speechSynthesis.speak(message);//PARADOTEO1
 	
+	//PARADOTEO1
 	if ((dlist.indexOf(donor) > -1) == false) {	//elegxos an to onoma tou donor emfanizetai panw apo mia fora
 		var element = document.createElement("img");	
 		element.src = imageFile;	
